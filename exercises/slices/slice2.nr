@@ -1,13 +1,14 @@
 // slice2.nr
 // use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn process_slice(mut slice: [Field]) -> Field {
     // TODO:
     // 1. Insert value 42 at index 2
+    slice = slice.insert(2, 42);
     // 2. Remove the element at index 0
+    let (_, slice) = slice.pop_front();
     // 3. Return the length of the final slice
+    slice.len() as Field
 
     // Your code here
 }

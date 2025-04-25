@@ -1,14 +1,14 @@
 // slice3.nr
 // use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn transform_slice(input: [Field]) -> [Field] {
     // TODO:
     // 1. Double each element in the slice using map
+    let slice1 = input.map(|a| a * 2);
     // 2. Filter out all elements that are greater than 10
+    let slice2 = slice1.filter(|a| a as u64 <= 10);
     // 3. Return the resulting slice
-
+    slice2
     // Your code here
 }
 

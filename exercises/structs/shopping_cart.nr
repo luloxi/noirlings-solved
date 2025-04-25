@@ -1,8 +1,6 @@
 // shopping_cart.nr
 // use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 struct Product {
     id: Field,
     price: Field,
@@ -17,13 +15,27 @@ struct Cart {
 impl Cart {
     // TODO: Implement the following methods for Cart:
     // 1. new() - creates an empty cart with zero items
+    fn new() -> Cart {
+        Cart { items: [Product { id: 0, price: 0, quantity: 0 }; 3], total_items: 0 }
+    }
     // 2. add_product(product: Product) -> bool - adds a product if total_items < 3
+
     fn calculate_total(self) -> Field {
         let mut total = 0;
         for i in 0..self.total_items as u64 {
             total = total + self.items[i].price * self.items[i].quantity;
         }
         total
+    }
+
+    fn add_product(&mut self, product: Product) -> bool {
+        let mut result = false;
+        if self.total_items as u64 < 3 {
+            self.items[self.total_items as u64] = product;
+            self.total_items += 1;
+            result = true;
+        }
+        result
     }
 }
 
